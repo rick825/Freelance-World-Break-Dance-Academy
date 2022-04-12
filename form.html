@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Send Email</title>
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat";
+  overflow: hidden;
+  display: flex;
+}
+#container{
+  height: 100vh;
+  width: 100%;
+  /*background-color: aliceblue;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+  background-image: url('image/formback.jpg');
+  background-size: 100% 100%;
+  animation: stretch 1.5s ease forwards;
+}
+
+#container:before{
+content: " ";
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ background-color: black;
+ opacity: 0.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  margin-top: 20px;
+  margin-left: 160px;
+  box-shadow: 0px 0px 20px #00000010;
+  /*background-color: white;*/
+  /*background-color: transparent;*/
+  background-image: url('image/slider/01.jpg');
+ background-size: 100% 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10000;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.container > *{
+z-index: 1000;
+color: white;
+}
+
+.container:before{
+ content: " ";
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ background-color: black;
+ opacity: 0.3;
+ z-index: -5;
+}
+
+.form-group {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  border: 1px solid white;
+  margin-top: 5px;
+  background-color: black;
+  color: white;
+  opacity: 0.4;
+}
+
+textarea {
+  resize: vertical;
+  /*background-color: transparent;*/
+  background-color: black;
+  color: white;
+  opacity: 0.4;
+}
+
+
+button[type="submit"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  color: rgb(27, 166, 247);
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease background-color;
+}
+button[type="submit"]:hover {
+  background-color: rgb(214, 226, 236);
+}
+#status {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+#status.success {
+  background-color: rgb(211, 250, 153);
+  animation: status 4s ease forwards;
+}
+#status.error {
+  background-color: rgb(250, 129, 92);
+  color: white;
+  animation: status 4s ease forwards;
+}
+@keyframes status {
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes stretch{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100vh;
+    }
+}
+
+
+
+/*back*/
+  .back{
+    width: 100%;
+    position: absolute;
+    left: -10%;
+    top: 8%;
+    display: flex;
+    justify-content: center;
+    z-index: 100000;
+    animation: risebutton 2s ease forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+  }
+
+
+  .back img{
+    width: 45px;
+  }
+
+  @keyframes risebutton{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/*logo*/
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100000;
+     position: absolute;
+     top: 15%;
+     right: -28%;
+  }
+
+ .logo h1{
+  color: white;
+  width: 50%;
+    font-size: 6.9rem;
+    font-family: 'Festive', cursive;
+    letter-spacing: 4px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 8rem;
+    text-shadow: 0px 0px 5px black,0px 5px 5px black;
+  }
+
+
+  @media only screen and (max-width: 600px){
+    .back{ left: 38%; top: 2%;  }
+    .back img{
+        width: 40px;
+    }
+    .container{
+        margin-left: 0;
+    }
+
+    #container{
+        height: 100%;
+    }
+
+    #logo{
+        opacity: 0;
+    }
+  }
+
+    </style>
+</head>
+
+<body>
+
+<section id="back">
+    <div class="back">
+    <a href="index.html"><img src="icons/back.png" alt=""></a>
+    </div>
+</section>
+
+
+<section id="container">
+  <div class="container">
+    <form action="https://formspree.io/f/xvolwkro" method="POST" id="my-form">
+
+      <div class="form-group">
+        <label for="firstName"> First Name</label>
+        <input type="text" id="firstName" name="firstName">
+      </div>
+
+      <div class="form-group">
+        <label for="latsName">Last Name</label>
+        <input type="text" id="lastName" name="lastName">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="massage">Massage</label>
+        <textarea name="massage" id="massage" cols="30" rows="10"></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div id="status"></div>
+</section>
+
+<section id="logo">
+    <div class="logo">
+        <h1>World Break Dance Academy</h1>
+    </div>
+</section>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+  // get the form elements defined in your form HTML above
+
+  var form = document.getElementById("my-form");
+  // var button = document.getElementById("my-form-button");
+  var status = document.getElementById("status");
+
+  // Success and Error functions for after the form is submitted
+
+  function success() {
+    form.reset();
+    status.classList.add("success");
+    status.innerHTML = "Thanks!";
+  }
+
+  function error() {
+    status.classList.add("error");
+    status.innerHTML = "Oops! There was a problem.";
+  }
+
+  // handle the form submission event
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form);
+    ajax(form.method, form.action, data, success, error);
+  });
+});
+
+// helper function for sending an AJAX request
+
+function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      success(xhr.response, xhr.responseType);
+    } else {
+      error(xhr.status, xhr.response, xhr.responseType);
+    }
+  };
+  xhr.send(data);
+}
+
+</script>
+
+</body>
+
+</html>
