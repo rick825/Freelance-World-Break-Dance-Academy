@@ -1,0 +1,33 @@
+@media only screen and (max-width: 600px){
+	.popup{
+	   width: 30rem;
+	   height: 100rem;
+	   left: 5%; 
+	   top: 0;
+	}
+    
+    .signup,.login{
+    	flex-direction: column;
+    }
+
+    .signupleft,.loginleft{
+    	width: 100%;
+    	height: 25%;
+    }
+
+    .signupright,.loginright{
+    	width: 100%;
+    	height: 75%;
+    }
+
+    .signupform input{
+    	width: 100%;
+    }
+
+    .createpost{
+    	left: 2%;
+    	margin-top: 8rem;
+    	height: 60rem;
+    }
+
+}
